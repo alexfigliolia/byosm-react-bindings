@@ -11,10 +11,6 @@
     "test": "jest",
     "lint": "tsc --noemit && eslint ./ --fix"
   },
-  "dependencies": {
-    "my-state": "file:../my-state",
-    "react": "^18.2.0"
-  },
   "devDependencies": {
     "@figliolia/ts-packager": "^1.0.9",
     "@types/node": "^16.7.13",
@@ -32,5 +28,21 @@
     "prettier": "^2.8.8",
     "tsx": "^4.7.1",
     "typescript": "^5.4.3"
-  }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "my-state": "file:../my-state"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/types/index.d.ts"
 }
